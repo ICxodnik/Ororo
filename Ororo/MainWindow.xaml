@@ -14,6 +14,16 @@
         </LinearGradientBrush>
     </Window.Background>-->
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFD0D7E4" Offset="0"/>
+                <GradientStop Color="#FF6E95E0" Offset="1"/>
+                <GradientStop Color="#FF384D74" Offset="0.356"/>
+                <GradientStop Color="#FF5A9FB8" Offset="0.763"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"></RowDefinition>
@@ -24,58 +34,62 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Row="0" Grid.Column="0">Показать сериалы</Button>
+        <Button Grid.Row="0" Grid.Column="0" Click="Button_Click">Показать сериалы</Button>
         <Button Grid.Row="0" Grid.Column="1">Показать фильмы</Button>
         <Button Grid.Row="0" Grid.Column="2">Показать видео</Button>
 
 
 
 
-        <!--<ListView x:Name="textBlock" Grid.Row="1"  Grid.ColumnSpan="3">
-        <Grid >
 
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.7">
-                    <GradientStop Color="#FF341009" Offset="0.932"/>
-                    <GradientStop Color="#FF3C1B13" Offset="0.065"/>
-                    <GradientStop Color="#FFA85058" Offset="0.457"/>
-                </LinearGradientBrush>
-            </Grid.Background>-->
 
-        <ListView x:Name="listView" Padding="0,15" Grid.Row="1"  Grid.ColumnSpan="3"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
+        <ListView x:Name="listView" Padding="0,15" Grid.Row="1"  Grid.ColumnSpan="3"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0,3,0,1" Background="{x:Null}" >
 
-                        <Grid Margin="10">
-                            <Grid.Background>
-                                <SolidColorBrush Color="#FFB17E7E" Opacity="0.5"/>
-                            </Grid.Background>
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
+            <ListView.ItemTemplate >
+                <DataTemplate>
 
-                            <StackPanel Orientation="Horizontal" Grid.Row="0">
-                                <Label Content="{Binding Type}" FontSize="15"  />
-                                <Label Content=" - " FontSize="15" />
-                                <Label Content="{Binding Price}" FontSize="15"/>
+                    <Grid Margin="10" Background="#FFB7C2C2" OpacityMask="#FFF7F7F7">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Rectangle  Height="5" Width="300" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Fill="#FFF9F9F9"/>
+
+                        <Image Source="{Binding ImageLink}" Grid.Row="1" HorizontalAlignment="Stretch" Margin="10" Grid.Column="0"/>
+                        <StackPanel Grid.Column="1" Grid.Row="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Title}" FontSize="15" />
                             </StackPanel>
 
-                            <Image Source="{Binding SourseImg}" Height="200"  Grid.Row="1"/>
-                            <Label Content="{Binding Time}" FontSize="15" Grid.Row="2" HorizontalAlignment="Right" HorizontalContentAlignment="Right" />
-                            <Label Content="Time:" FontSize="15" Grid.Row="2" HorizontalAlignment="Left" HorizontalContentAlignment="Left" />
-                        </Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Rating - "/>
+                                <Label Content="{Binding Rating}" FontSize="15" />
+                            </StackPanel>
 
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-            </ListView>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Year - "/>
+                                <Label Content="{Binding Year}" FontSize="15" />
+                            </StackPanel>
 
-        </Grid>
+                            <Label Content="Description - "/>
+                            <TextBlock Text="{Binding Description}" TextWrapping="WrapWithOverflow"></TextBlock>
+                        </StackPanel>
+
+                        <Rectangle  Height="5" Width="300" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Fill="#FFF9F9F9"/>
+                    </Grid>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
 
 </Window>

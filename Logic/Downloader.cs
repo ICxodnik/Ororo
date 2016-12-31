@@ -50,9 +50,9 @@ namespace Logic
             }
             var infoNode = show.SelectSingleNode("a//div[@class='info']");
 
-            poster.Rating = infoNode.SelectSingleNode("span[@class='cam']/span").InnerText;
-            poster.Year = infoNode.SelectSingleNode("span[@class='star']/span").InnerText;
-
+            poster.Year = infoNode.SelectSingleNode("span[@class='cam']/span").InnerText;
+            poster.Rating = infoNode.SelectSingleNode("span[@class='star']/span").InnerText;
+            
             poster.Description = infoNode.SelectSingleNode("div[@class='desc']/p").InnerText;
             poster.Title = infoNode.SelectSingleNode("div[@class='desc']/div[@class='title']").InnerText;
 
