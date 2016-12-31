@@ -42,11 +42,11 @@ namespace Logic
             poster.DataLink = show.SelectSingleNode("a").Attributes["href"].Value;
             try
             {
-                poster.ImageLink = show.SelectSingleNode("a/img").Attributes["src"].Value;
+                poster.ImageLink = show.SelectSingleNode("a/img").Attributes["data-original"].Value;
             }
             catch
             {
-                poster.ImageLink = show.SelectSingleNode("a/img").Attributes["data-original"].Value;
+                poster.ImageLink = show.SelectSingleNode("a/img").Attributes["src"].Value;
             }
             var infoNode = show.SelectSingleNode("a//div[@class='info']");
 
