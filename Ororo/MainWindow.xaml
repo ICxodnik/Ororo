@@ -35,8 +35,8 @@
         </Grid.ColumnDefinitions>
 
         <Button Grid.Row="0" Grid.Column="0" Click="Button_Click">Показать сериалы</Button>
-        <Button Grid.Row="0" Grid.Column="1">Показать фильмы</Button>
-        <Button Grid.Row="0" Grid.Column="2">Показать видео</Button>
+        <Button Grid.Row="0" Grid.Column="1" Click="Button_Click_1">Показать фильмы</Button>
+        <Button Grid.Row="0" Grid.Column="2" Click="Button_Click_2">Показать видео</Button>
 
 
 

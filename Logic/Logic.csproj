@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DownloaderVideo.cs" />
     <Compile Include="Downloader.cs" />
     <Compile Include="Episode.cs" />
     <Compile Include="Poster.cs" />

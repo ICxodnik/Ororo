@@ -22,6 +22,8 @@ namespace Ororo
     public partial class MainWindow : Window
     {
         const string BaseUrl = "https://ororo.tv/ru";
+        const string FilmsUrl = "https://ororo.tv/ru/movies";
+        const string VideoUrl = "https://ororo.tv/ru/movies";
 
         public MainWindow()
         {
@@ -41,6 +43,18 @@ namespace Ororo
         {
             Downloader load = new Downloader();
             listView.ItemsSource = load.GetAllPosterInfoBriefly(BaseUrl);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Downloader load = new Downloader();
+            listView.ItemsSource = load.GetAllPosterInfoBriefly(FilmsUrl);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            DownloaderVideo load = new DownloaderVideo();
+            listView.ItemsSource = load.GetAllPosterInfoBriefly(VideoUrl);
         }
     }
 }
