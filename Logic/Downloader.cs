@@ -40,7 +40,14 @@ namespace Logic
             Poster poster = new Poster();
 
             poster.DataLink = show.SelectSingleNode("a").Attributes["href"].Value;
-            poster.ImageLink = show.SelectSingleNode("a/img").Attributes["src"].Value;
+            try
+            {
+                poster.ImageLink = show.SelectSingleNode("a/img").Attributes["src"].Value;
+            }
+            catch
+            {
+                poster.ImageLink = show.SelectSingleNode("a/img").Attributes["data-original"].Value;
+            }
             var infoNode = show.SelectSingleNode("a//div[@class='info']");
 
             poster.Rating = infoNode.SelectSingleNode("span[@class='cam']/span").InnerText;
@@ -48,7 +55,6 @@ namespace Logic
 
             poster.Description = infoNode.SelectSingleNode("div[@class='desc']/p").InnerText;
             poster.Title = infoNode.SelectSingleNode("div[@class='desc']/div[@class='title']").InnerText;
-
 
             return poster;
         }

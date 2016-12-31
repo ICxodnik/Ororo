@@ -5,29 +5,77 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ororo"
         mc:Ignorable="d"
-        Title="Ororo.tv" Height="585.287" Width="525" BorderBrush="White" Foreground="Black" OpacityMask="#FF0E0D15" FontFamily="SimSun" FontSize="20" Loaded="Window_Loaded">
-    <Window.Background>
+        Title="Ororo.tv" Height="629.966" Width="613.611" BorderBrush="White" Foreground="Black" OpacityMask="#FF0E0D15" FontFamily="Adobe Devanagari" FontSize="15" Loaded="Window_Loaded">
+    <!--<Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF2980FF" Offset="0"/>
             <GradientStop Color="#FF1C4279" Offset="1"/>
             <GradientStop Color="#FF0E3469" Offset="0.98"/>
         </LinearGradientBrush>
-    </Window.Background>
+    </Window.Background>-->
     <Grid>
-        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="20,20,20.4,379"  FontSize="12" VerticalScrollBarVisibility="Auto">
-            <RichTextBox.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFF2F2F4" Offset="0"/>
-                    <GradientStop Color="#FF315BEA" Offset="1"/>
-                </LinearGradientBrush>
-            </RichTextBox.Background>
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text="RichTextBox"/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="20,182,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="354" Width="478"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
 
-    </Grid>
+        <Button Grid.Row="0" Grid.Column="0">Показать сериалы</Button>
+        <Button Grid.Row="0" Grid.Column="1">Показать фильмы</Button>
+        <Button Grid.Row="0" Grid.Column="2">Показать видео</Button>
+
+
+
+
+        <!--<ListView x:Name="textBlock" Grid.Row="1"  Grid.ColumnSpan="3">
+        <Grid >
+
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.7">
+                    <GradientStop Color="#FF341009" Offset="0.932"/>
+                    <GradientStop Color="#FF3C1B13" Offset="0.065"/>
+                    <GradientStop Color="#FFA85058" Offset="0.457"/>
+                </LinearGradientBrush>
+            </Grid.Background>-->
+
+        <ListView x:Name="listView" Padding="0,15" Grid.Row="1"  Grid.ColumnSpan="3"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid Margin="10">
+                            <Grid.Background>
+                                <SolidColorBrush Color="#FFB17E7E" Opacity="0.5"/>
+                            </Grid.Background>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                                <Label Content="{Binding Type}" FontSize="15"  />
+                                <Label Content=" - " FontSize="15" />
+                                <Label Content="{Binding Price}" FontSize="15"/>
+                            </StackPanel>
+
+                            <Image Source="{Binding SourseImg}" Height="200"  Grid.Row="1"/>
+                            <Label Content="{Binding Time}" FontSize="15" Grid.Row="2" HorizontalAlignment="Right" HorizontalContentAlignment="Right" />
+                            <Label Content="Time:" FontSize="15" Grid.Row="2" HorizontalAlignment="Left" HorizontalContentAlignment="Left" />
+                        </Grid>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+
+        </Grid>
+
 </Window>

@@ -16,7 +16,6 @@ namespace Logic
             var info = load.GetAllPosterInfoBriefly(BaseUrl);
             foreach(var item in info)
             {
-                Console.WriteLine(item);
                 Console.WriteLine(item.DataLink);
                 Console.WriteLine(item.Description);
                 Console.WriteLine(item.ImageLink);
